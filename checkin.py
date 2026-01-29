@@ -168,7 +168,7 @@ def main():
 
 
 def git_commit_and_push():
-    os.system("git branch -M master")
+    os.system("git branch -M mainr")
 
     # Git 身份
     os.system('git config --global user.name "xiname"')
