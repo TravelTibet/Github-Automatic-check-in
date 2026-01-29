@@ -1,5 +1,14 @@
 [![Daily Checkin with Python](https://github.com/TravelTibet/Github-Automatic-check-in/actions/workflows/daily_checkin.yml/badge.svg)](https://github.com/TravelTibet/Github-Automatic-check-in/actions/workflows/daily_checkin.yml)
 
+<!-- TOC -->
+* [Github-Automatic-check-in](#github-automatic-check-in)
+  * [配置过程](#配置过程)
+    * [生成个人访问token（PAT）](#生成个人访问tokenpat)
+    * [将 PAT 添加到 Secrets](#将-pat-添加到-secrets)
+    * [更改自己的账号以及名称](#更改自己的账号以及名称)
+  * [⏳ 自动签到状态](#-自动签到状态)
+<!-- TOC -->
+
 # Github-Automatic-check-in
 - Github自动打卡，签到
 
@@ -38,3 +47,14 @@
     os.system('git config --global user.email "xinametravel@qq.com"')
 ```
 user.name 以及 user.email更改成自己的**Github**的账户名以及提交的电子邮件
+
+
+
+## ⏳ 自动签到状态
+
+<!-- CHECKIN_START -->
+连续签到：1 天  
+最近签到：2026-01-29  
+状态：持续中 🚀
+<!-- CHECKIN_END -->
+
