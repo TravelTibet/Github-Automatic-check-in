@@ -1,3 +1,5 @@
+[![Daily Checkin with Python](https://github.com/TravelTibet/Github-Automatic-check-in/actions/workflows/daily_checkin.yml/badge.svg)](https://github.com/TravelTibet/Github-Automatic-check-in/actions/workflows/daily_checkin.yml)
+
 # Github-Automatic-check-in
 - Github自动打卡，签到
 
