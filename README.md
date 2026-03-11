@@ -1,4 +1,5 @@
 [![Daily Checkin with Python](https://github.com/TravelTibet/Github-Automatic-check-in/actions/workflows/daily_checkin.yml/badge.svg)](https://github.com/TravelTibet/Github-Automatic-check-in/actions/workflows/daily_checkin.yml)
+[![CodeQL](https://github.com/TravelTibet/Github-Automatic-check-in/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/TravelTibet/Github-Automatic-check-in/actions/workflows/github-code-scanning/codeql)
 
 <!-- TOC -->
 * [Github-Automatic-check-in](#github-automatic-check-in)
