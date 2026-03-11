@@ -9,8 +9,9 @@
   * [⏳ 自动签到状态](#-自动签到状态)
 <!-- TOC -->
 
-# Github-Automatic-check-in
-- Github自动打卡，签到
+# Github-Automatic-check-in（GitHub自动签到）
+- 随机每日的心情，状态等信息
+- 按照年，月进行归档日志
 
 > [!NOTE]
 > 
