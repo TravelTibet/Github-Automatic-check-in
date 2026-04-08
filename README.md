@@ -50,6 +50,15 @@
 ```
 user.name 以及 user.email更改成自己的**Github**的账户名以及提交的电子邮件
 
+## Star History
+
+<a href="https://www.star-history.com/?repos=TravelTibet%2FGithub-Automatic-check-in&type=date&legend=bottom-right">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=TravelTibet/Github-Automatic-check-in&type=date&theme=dark&legend=bottom-right" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=TravelTibet/Github-Automatic-check-in&type=date&legend=bottom-right" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=TravelTibet/Github-Automatic-check-in&type=date&legend=bottom-right" />
+ </picture>
+</a>
 
 
 ## ⏳ 自动签到状态
