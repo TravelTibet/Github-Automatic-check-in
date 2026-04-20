@@ -181,7 +181,7 @@ def git_commit_and_push():
 
     os.system(
         f"git remote set-url origin "
-        f"https://{token}@github.com/TravelTibet/Github-Automatic-check-in.git"
+        f"https://{token}@github.com/121592512/Github-Automatic-check-in.git"
     )
 
     os.system("git add -A")
