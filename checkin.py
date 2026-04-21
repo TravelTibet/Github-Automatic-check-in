@@ -35,7 +35,9 @@ def update_streak(today: date):
     state = load_state()
     last = state["last_date"]
 
-    if last == (today - timedelta(days=1)).isoformat():
+    if last == today.isoformat():
+        return state["streak"]  # 今天已经运行过，直接返回，不重置
+    elif last == (today - timedelta(days=1)).isoformat():
         state["streak"] += 1
     else:
         state["streak"] = 1
@@ -43,6 +45,7 @@ def update_streak(today: date):
     state["last_date"] = today.isoformat()
     save_state(state)
     return state["streak"]
+
 
 
 # ========== 签到内容 ==========
