@@ -113,6 +113,8 @@ os.system('git config --global user.email "你的GitHub注册邮箱"')
 
 ## ⏳ 自动签到状态
 
-连续签到：82 天
-最近签到：2026-04-20
+<!-- CHECKIN_START -->
+连续签到：82 天  
+最近签到：2026-04-20  
 状态：持续中 🚀
+<!-- CHECKIN_END -->
