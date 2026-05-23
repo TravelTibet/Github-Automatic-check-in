@@ -12,7 +12,7 @@ jobs:
       contents: write  # 允许写入仓库
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0  # 拉取完整提交历史
           token: ${{ secrets.DAILY_CHECKIN }}
