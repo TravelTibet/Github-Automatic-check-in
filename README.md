@@ -75,19 +75,42 @@
 
 ```python
 os.system('git config --global user.name "你的GitHub用户名"')
-os.system('git config --global user.email "你的GitHub注册邮箱"')
+os.system('git config --global user.email "你的邮箱"')
 ```
-
-> 例如：
-> ```python
-> os.system('git config --global user.name "myusername"')
-> os.system('git config --global user.email "myemail@example.com"')
-> ```
 
 4. 点击页面右上角 **Commit changes** 保存。
 
+---
+
+#### 📧 如何填写邮箱？
+
+进入 **[Settings > Emails](https://github.com/settings/emails)**，根据你的隐私设置选择对应方式：
+
+**情况一：未开启邮箱隐私保护**
+
+页面中 **"Keep my email addresses private"** 选项未勾选，直接使用你注册 GitHub 时的真实邮箱即可：
+
+```python
+os.system('git config --global user.email "myemail@example.com"')
+```
+
+**情况二：已开启邮箱隐私保护**
+
+页面中 **"Keep my email addresses private"** 已勾选，同时页面会显示一个 GitHub 提供的匿名邮箱，格式如下：
+
+```
+123456789+username@users.noreply.github.com
+```
+
+将这个完整地址复制后填入：
+
+```python
+os.system('git config --global user.email "123456789+username@users.noreply.github.com"')
+```
+
 > [!NOTE]
-> GitHub 用户名可在页面右上角头像旁看到；邮箱可在 **Settings > Emails** 中查看。
+> GitHub 用户名可在页面右上角头像旁看到。
+> 若同时勾选了 **"Block command line pushes that expose my email address"**，则必须使用匿名邮箱，否则推送会被 GitHub 拒绝并报错 `GH007`。
 
 ---
 
