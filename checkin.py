@@ -2,7 +2,7 @@ import os
 import json
 import random
 import re
-from datetime import datetime, timedelta, date
+from datetime import datetime, timedelta, date, timezone
 from collections import Counter
 
 # ========== 基础配置 ==========
@@ -15,7 +15,7 @@ TAGS = ["steady", "focus", "flow", "grind", "calm"]
 
 # ========== 时间 ==========
 def beijing_time():
-    return datetime.utcnow() + timedelta(hours=8)
+    return datetime.now(timezone.utc).replace(tzinfo=None) + timedelta(hours=8)
 
 
 # ========== 连续签到状态 ==========
@@ -172,28 +172,25 @@ def main():
 
 def git_commit_and_push():
     os.system("git branch -M main")
-
-    # Git 身份
     os.system('git config --global user.name "xiname"')
-    os.system('git config --global user.email "xinametravel@qq.com"')
-
+    # GitHub noreply 邮箱，格式：用户数字ID+用户名@users.noreply.github.com
+    # 在 https://github.com/settings/emails 页面可以看到你的 noreply 地址
+    os.system('git config --global user.email "119091203+TravelTibet@users.noreply.github.com"')
     token = os.getenv("GITHUB_TOKEN")
     if not token:
         print("❌ GITHUB_TOKEN 未设置")
-        return
-
+        sys.exit(1)
     os.system(
         f"git remote set-url origin "
         f"https://{token}@github.com/TravelTibet/Github-Automatic-check-in.git"
     )
-
     os.system("git add -A")
-
-    msg = f"Daily checkin: {datetime.utcnow().strftime('%Y-%m-%d')}"
+    msg = f"Daily checkin: {datetime.now(timezone.utc).strftime('%Y-%m-%d')}"
     os.system(f'git commit -m "{msg}" || echo "No changes to commit"')
-
-    # 推送
-    os.system("git push origin main")
+    ret = os.system("git push origin main")
+    if ret != 0:
+        print(f"❌ git push 失败，退出码: {ret}")
+        sys.exit(1)
     os.system("git status")
 
 
