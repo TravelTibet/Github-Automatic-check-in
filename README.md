@@ -17,7 +17,9 @@
 ## 📦 最新版本
 
 <!-- RELEASE_START -->
-暂无发布版本
+### [v1.0.1](https://github.com/TravelTibet/Github-Automatic-check-in/releases/tag/v1.0.1) · 2026-05-23
+
+**Full Changelog**: https://github.com/TravelTibet/Github-Automatic-check-in/compare/v1.0.0...v1.0.1
 <!-- RELEASE_END -->
 
 ## 配置过程
