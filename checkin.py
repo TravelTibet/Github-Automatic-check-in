@@ -1,7 +1,9 @@
 import os
+import sys
 import json
 import random
 import re
+import urllib.request
 from datetime import datetime, timedelta, date, timezone
 from collections import Counter
 
@@ -45,7 +47,6 @@ def update_streak(today: date):
     state["last_date"] = today.isoformat()
     save_state(state)
     return state["streak"]
-
 
 
 # ========== 签到内容 ==========
@@ -149,6 +150,25 @@ def generate_yearly_summary(year):
         f.write(f"- 总签到天数：{total_days}\n")
 
 
+# ========== 自动获取 Git 身份 ==========
+def get_git_identity():
+    token = os.getenv("GITHUB_TOKEN")
+    req = urllib.request.Request(
+        "https://api.github.com/user",
+        headers={
+            "Authorization": f"token {token}",
+            "Accept": "application/vnd.github+json",
+        }
+    )
+    with urllib.request.urlopen(req) as resp:
+        data = json.load(resp)
+
+    name = data.get("name") or data["login"]
+    # 邮箱公开则直接用，否则自动构造 noreply 匿名地址
+    email = data.get("email") or f"{data['id']}+{data['login']}@users.noreply.github.com"
+    return name, email
+
+
 # ========== 主流程 ==========
 def main():
     dt = beijing_time()
@@ -171,22 +191,25 @@ def main():
 
 
 def git_commit_and_push():
-    os.system("git branch -M main")
-    os.system('git config --global user.name "xiname"')
-    # GitHub noreply 邮箱，格式：用户数字ID+用户名@users.noreply.github.com
-    # 在 https://github.com/settings/emails 页面可以看到你的 noreply 地址
-    os.system('git config --global user.email "119091203+TravelTibet@users.noreply.github.com"')
     token = os.getenv("GITHUB_TOKEN")
     if not token:
         print("❌ GITHUB_TOKEN 未设置")
         sys.exit(1)
-    os.system(
-        f"git remote set-url origin "
-        f"https://{token}@github.com/TravelTibet/Github-Automatic-check-in.git"
-    )
+
+    # 自动从 GitHub API 获取当前 token 对应用户的身份
+    name, email = get_git_identity()
+    os.system(f'git config --global user.name "{name}"')
+    os.system(f'git config --global user.email "{email}"')
+
+    # 从 Actions 环境变量自动获取仓库路径，格式：username/repo-name
+    repo = os.getenv("GITHUB_REPOSITORY")
+    os.system(f"git remote set-url origin https://{token}@github.com/{repo}.git")
+
+    os.system("git branch -M main")
     os.system("git add -A")
     msg = f"Daily checkin: {datetime.now(timezone.utc).strftime('%Y-%m-%d')}"
     os.system(f'git commit -m "{msg}" || echo "No changes to commit"')
+
     ret = os.system("git push origin main")
     if ret != 0:
         print(f"❌ git push 失败，退出码: {ret}")
