@@ -12,6 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: main
           token: ${{ secrets.DAILY_CHECKIN }}
 
       - name: Update README with release notes
