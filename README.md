@@ -17,9 +17,11 @@
 ## 📦 最新版本
 
 <!-- RELEASE_START -->
-### [v1.0.2](https://github.com/TravelTibet/Github-Automatic-check-in/releases/tag/v1.0.2) · 2026-05-23
+### [v1.0.1](https://github.com/TravelTibet/Github-Automatic-check-in/releases/tag/v1.0.1) · 2026-05-23
 
-**Full Changelog**: https://github.com/TravelTibet/Github-Automatic-check-in/compare/v1.0.1...v1.0.2
+**Full Changelog**: https://github.com/TravelTibet/Github-Automatic-check-in/compare/v1.0.0...v1.0.1
+
+> 📋 完整更新历史请移步 [Releases](https://github.com/TravelTibet/Github-Automatic-check-in/releases) 查看
 <!-- RELEASE_END -->
 
 ---
@@ -75,56 +77,12 @@
 
 3. 点击 **Add secret** 保存。
 
----
-
-### 第四步：修改 checkin.py 中的用户信息
-
-1. 在仓库页面点击 **`checkin.py`** 文件
-2. 点击右上角 ✏️ **铅笔图标** 进入编辑模式
-3. 找到以下两行，改为你自己的 GitHub 用户名和邮箱：
-
-```python
-os.system('git config --global user.name "你的GitHub用户名"')
-os.system('git config --global user.email "你的邮箱"')
-```
-
-4. 点击页面右上角 **Commit changes** 保存。
-
----
-
-#### 📧 如何填写邮箱？
-
-进入 **[Settings > Emails](https://github.com/settings/emails)**，根据你的隐私设置选择对应方式：
-
-**情况一：未开启邮箱隐私保护**
-
-页面中 **"Keep my email addresses private"** 选项未勾选，直接使用你注册 GitHub 时的真实邮箱即可：
-
-```python
-os.system('git config --global user.email "myemail@example.com"')
-```
-
-**情况二：已开启邮箱隐私保护**
-
-页面中 **"Keep my email addresses private"** 已勾选，同时页面会显示一个 GitHub 提供的匿名邮箱，格式如下：
-
-```
-123456789+username@users.noreply.github.com
-```
-
-将这个完整地址复制后填入：
-
-```python
-os.system('git config --global user.email "123456789+username@users.noreply.github.com"')
-```
-
 > [!NOTE]
-> GitHub 用户名可在页面右上角头像旁看到。
-> 若同时勾选了 **"Block command line pushes that expose my email address"**，则必须使用匿名邮箱，否则推送会被 GitHub 拒绝并报错 `GH007`。
+> 脚本会通过这个 Token 自动识别你的 GitHub 用户名和邮箱，**无需手动修改任何代码**。
 
 ---
 
-### 第五步：验证是否成功
+### 第四步：验证是否成功
 
 配置完成后，可以手动触发一次测试：
 
@@ -136,8 +94,7 @@ os.system('git config --global user.email "123456789+username@users.noreply.gith
 
 如果显示 ❌ 红色，点进去查看日志，常见错误：
 - `remote: Permission denied` → Secret 名称填错，或 PAT 权限不足
-- `Author identity unknown` → `checkin.py` 中的用户名/邮箱未修改
-- `GH007` → 需要使用匿名邮箱，参考第四步
+- `GH007` → 进入 **[Settings > Emails](https://github.com/settings/emails)**，关闭 **"Block command line pushes that expose my email address"** 选项，或将邮箱设为公开
 
 ---
 
@@ -161,10 +118,9 @@ os.system('git config --global user.email "123456789+username@users.noreply.gith
 1. 点击仓库名称下方的 **"This branch is N commits behind"** 提示
 2. 点击 **Sync fork → Update branch**
 
-> [!WARNING]
-> 同步完成后，**必须重新修改 `checkin.py` 中的用户名和邮箱**（参考第四步），
-> 否则签到记录会提交到原作者账号下，不会出现在你的贡献图中。
-> Secret 无需重新配置，已有的签到日志也不受影响。
+同步完成后代码自动更新，无需重新配置 Secret，**已有的签到记录也不受影响**。
+
+---
 
 ## Star History
 
