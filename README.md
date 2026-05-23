@@ -20,7 +20,11 @@
 ### [v1.0.1](https://github.com/TravelTibet/Github-Automatic-check-in/releases/tag/v1.0.1) · 2026-05-23
 
 **Full Changelog**: https://github.com/TravelTibet/Github-Automatic-check-in/compare/v1.0.0...v1.0.1
+
+> 📋 完整更新历史请移步 [Releases](https://github.com/TravelTibet/Github-Automatic-check-in/releases) 查看
 <!-- RELEASE_END -->
+
+---
 
 ## 配置过程
 
@@ -135,6 +139,35 @@ os.system('git config --global user.email "123456789+username@users.noreply.gith
 如果显示 ❌ 红色，点进去查看日志，常见错误：
 - `remote: Permission denied` → Secret 名称填错，或 PAT 权限不足
 - `Author identity unknown` → `checkin.py` 中的用户名/邮箱未修改
+- `GH007` → 需要使用匿名邮箱，参考第四步
+
+---
+
+## 🔔 订阅更新通知
+
+本仓库会不定期发布新版本，修复问题或新增功能。由于每天都有自动签到提交，**建议只订阅 Release 通知**，避免被日常 commit 打扰：
+
+1. 点击仓库页面右上角 **Watch** 下拉按钮
+2. 选择 **Custom**
+3. **只勾选 Releases**，取消其他选项
+4. 点击 **Apply**
+
+完成后，每当有新版本发布时你会收到一条 GitHub 通知，日常的签到提交不会有任何打扰。
+
+---
+
+## 🔄 如何更新到新版本
+
+收到新版本通知后，进入你自己 Fork 的仓库：
+
+1. 点击仓库名称下方的 **"This branch is N commits behind"** 提示
+2. 点击 **Sync fork → Update branch**
+
+同步完成后代码自动更新，无需重新配置 Secret 和用户信息，**已有的签到记录也不受影响**。
+
+> [!NOTE]
+> 如果 Sync fork 时提示冲突（Conflict），通常是因为 `checkin.py` 中修改过的用户名/邮箱与上游版本不同。
+> 选择 **"Discard N commits"** 后重新按第四步修改用户信息即可。
 
 ---
 
