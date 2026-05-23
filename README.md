@@ -161,13 +161,10 @@ os.system('git config --global user.email "123456789+username@users.noreply.gith
 1. 点击仓库名称下方的 **"This branch is N commits behind"** 提示
 2. 点击 **Sync fork → Update branch**
 
-同步完成后代码自动更新，无需重新配置 Secret 和用户信息，**已有的签到记录也不受影响**。
-
-> [!NOTE]
-> 如果 Sync fork 时提示冲突（Conflict），通常是因为 `checkin.py` 中修改过的用户名/邮箱与上游版本不同。
-> 选择 **"Discard N commits"** 后重新按第四步修改用户信息即可。
-
----
+> [!WARNING]
+> 同步完成后，**必须重新修改 `checkin.py` 中的用户名和邮箱**（参考第四步），
+> 否则签到记录会提交到原作者账号下，不会出现在你的贡献图中。
+> Secret 无需重新配置，已有的签到日志也不受影响。
 
 ## Star History
 
