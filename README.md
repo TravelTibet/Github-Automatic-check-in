@@ -14,6 +14,16 @@
 
 ---
 
+## ⏳ 自动签到状态
+
+<!-- CHECKIN_START -->
+连续签到：21 天  
+最近签到：2026-06-12  
+状态：持续中 🚀
+<!-- CHECKIN_END -->
+
+---
+
 ## 📦 最新版本
 
 <!-- RELEASE_START -->
@@ -124,10 +134,3 @@
 
 [![Star History Chart](https://api.star-history.com/svg?repos=TravelTibet/Github-Automatic-check-in&type=date&legend=bottom-right)](https://www.star-history.com/?repos=TravelTibet%2FGithub-Automatic-check-in&type=date&legend=bottom-right)
 
-## ⏳ 自动签到状态
-
-<!-- CHECKIN_START -->
-连续签到：21 天  
-最近签到：2026-06-12  
-状态：持续中 🚀
-<!-- CHECKIN_END -->
