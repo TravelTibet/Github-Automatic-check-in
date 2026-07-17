@@ -132,5 +132,10 @@
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=TravelTibet/Github-Automatic-check-in&type=date&legend=bottom-right)](https://www.star-history.com/?repos=TravelTibet%2FGithub-Automatic-check-in&type=date&legend=bottom-right)
-
+<a href="https://www.star-history.com/?repos=TravelTibet%2FGithub-Automatic-check-in%2CGithub-Automatic-check-in%2FGithub-Automatic-check-in&type=date&legend=bottom-right">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=TravelTibet/Github-Automatic-check-in%2CGithub-Automatic-check-in/Github-Automatic-check-in&type=date&theme=dark&legend=bottom-right&sealed_token=q6Y57qSP9rHrvdl8bkDczAnjoM4oI1xEHpYkvkRbYT759o9Mnx74hXqOvSxyVrbbwTJRcbmakBAu0FBHMwmilGQnaEa0an8up5My562LT30GJU5VhLxXugIC6eoqe6MDPAQKILQJBfVSN5P9piVGvfNxuRHyG0XsOrFKHSA-jQlPclsrrwf0oJxfsyOv" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=TravelTibet/Github-Automatic-check-in%2CGithub-Automatic-check-in/Github-Automatic-check-in&type=date&legend=bottom-right&sealed_token=q6Y57qSP9rHrvdl8bkDczAnjoM4oI1xEHpYkvkRbYT759o9Mnx74hXqOvSxyVrbbwTJRcbmakBAu0FBHMwmilGQnaEa0an8up5My562LT30GJU5VhLxXugIC6eoqe6MDPAQKILQJBfVSN5P9piVGvfNxuRHyG0XsOrFKHSA-jQlPclsrrwf0oJxfsyOv" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=TravelTibet/Github-Automatic-check-in%2CGithub-Automatic-check-in/Github-Automatic-check-in&type=date&legend=bottom-right&sealed_token=q6Y57qSP9rHrvdl8bkDczAnjoM4oI1xEHpYkvkRbYT759o9Mnx74hXqOvSxyVrbbwTJRcbmakBAu0FBHMwmilGQnaEa0an8up5My562LT30GJU5VhLxXugIC6eoqe6MDPAQKILQJBfVSN5P9piVGvfNxuRHyG0XsOrFKHSA-jQlPclsrrwf0oJxfsyOv" />
+ </picture>
+</a>
