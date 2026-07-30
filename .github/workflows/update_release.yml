@@ -49,7 +49,7 @@ jobs:
 
       - name: Get Git identity
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.DAILY_CHECKIN }}
         run: |
           python git_identity.py > git_identity.env
 
