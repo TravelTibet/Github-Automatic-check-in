@@ -2,7 +2,7 @@ name: Update README on Release
 
 on:
   release:
-    types: [published]
+    types: [ published ]
 
 jobs:
   update-readme:
@@ -47,10 +47,19 @@ jobs:
           print(f"✅ README updated for {tag}")
           EOF
 
+      - name: Get Git identity
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python git_identity.py > git_identity.env
+
       - name: Commit and push
         run: |
-          git config --global user.name "xiname"
-          git config --global user.email "119091203+TravelTibet@users.noreply.github.com"
+          source git_identity.env
+          
+          git config --local user.name "$NAME"
+          git config --local user.email "$EMAIL"
+          
           git add README.md
           git commit -m "docs: update README for ${{ github.event.release.tag_name }}" || echo "nothing to commit"
           git push

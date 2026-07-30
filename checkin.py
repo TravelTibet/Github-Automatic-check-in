@@ -6,6 +6,7 @@ import re
 import urllib.request
 from datetime import datetime, timedelta, date, timezone
 from collections import Counter
+from git_identity import get_git_identity
 
 # ========== 基础配置 ==========
 STATE_FILE = "state.json"
@@ -148,25 +149,6 @@ def generate_yearly_summary(year):
     with open(os.path.join("yearly", f"{year}.md"), "w", encoding="utf-8") as f:
         f.write(f"# 🎉 {year} 年终总结\n\n")
         f.write(f"- 总签到天数：{total_days}\n")
-
-
-# ========== 自动获取 Git 身份 ==========
-def get_git_identity():
-    token = os.getenv("GITHUB_TOKEN")
-    req = urllib.request.Request(
-        "https://api.github.com/user",
-        headers={
-            "Authorization": f"token {token}",
-            "Accept": "application/vnd.github+json",
-        }
-    )
-    with urllib.request.urlopen(req) as resp:
-        data = json.load(resp)
-
-    name = data.get("name") or data["login"]
-    # 邮箱公开则直接用，否则自动构造 noreply 匿名地址
-    email = data.get("email") or f"{data['id']}+{data['login']}@users.noreply.github.com"
-    return name, email
 
 
 # ========== 主流程 ==========
