@@ -1,6 +1,10 @@
 import os
 import json
 import urllib.request
+import urllib.error
+
+_ACTIONS_BOT_NAME = "github-actions[bot]"
+_ACTIONS_BOT_EMAIL = "41898282+github-actions[bot]@users.noreply.github.com"
 
 
 def get_git_identity():
@@ -16,8 +20,15 @@ def get_git_identity():
         },
     )
 
-    with urllib.request.urlopen(req) as resp:
-        data = json.load(resp)
+    try:
+        with urllib.request.urlopen(req) as resp:
+            data = json.load(resp)
+    except urllib.error.HTTPError as e:
+        if e.code == 403:
+            # GITHUB_TOKEN is a GitHub App installation token, not a user token;
+            # fall back to the standard GitHub Actions bot identity.
+            return _ACTIONS_BOT_NAME, _ACTIONS_BOT_EMAIL
+        raise
 
     name = data.get("name") or data["login"]
     # 邮箱公开则直接用，否则自动构造 noreply 匿名地址
